@@ -12,6 +12,14 @@
             new Sliders( $( this ) );
         } );
 
+        $.each( $( '.references' ), function() {
+            new ReferencesAnimare( $( this ) );
+        } );
+
+        $.each( $( '.news' ), function() {
+            new NewsAnimare( $( this ) );
+        } );
+
     } );
 
     var Page = function( obj ) {
@@ -42,13 +50,11 @@
                             _obj.removeClass( 'hide' );
                             _hidePageScroll();
                         } else {
-
                             setTimeout( function () {
                                 _sceneActive = true;
-                                _indicator.turnOn();
+                                _indicatorSwiper.turnOn();
                                 return false;
-                            }, 500 );
-
+                            }, 1000 );
                         }
 
                     },
@@ -97,6 +103,30 @@
             _animateMainElement = function () {
 
                 _site.addClass( 'animate' );
+
+            },
+            _animateSwiper = function () {
+
+                var curItem = _swipeItem.filter( '.swiper-slide-active' );
+
+                curItem.addClass( 'animate-slide' );
+
+                curItem.find( '.tlt' ).textillate( {
+                    in: {
+                        effect: 'fadeIn',
+                        delay: 3,
+                        shuffle: true
+                    }
+                } );
+
+                curItem.find( '.tlt-btn' ).textillate( {
+                    initialDelay: 200,
+                    in: {
+                        effect: 'fadeIn',
+                        delay: 50,
+                        shuffle: true
+                    }
+                } );
 
             },
             _getScrollWidth = function (){
@@ -163,6 +193,8 @@
                 } else {
 
                     _hideScenes();
+                    _sceneActive = true;
+                    return false;
 
                 }
 
@@ -170,6 +202,8 @@
             _checkSwiperActive = function () {
 
                 if ( _sceneSwipeItem.hasClass( 'active' ) ){
+
+                    _sceneSwipeItem.addClass( 'animate-scene' );
 
                     _indicator.turnOff();
 
@@ -185,6 +219,7 @@
                     } );
                     _indicatorSwiper.getOption( 'preventMouse' );
 
+                    _animateSwiper();
 
                     return false
                 }
@@ -201,8 +236,6 @@
             _checkSwiperUp = function () {
 
                 var curElem = _swipeItem.filter( '.swiper-slide-active' );
-
-                console.log( curElem.index() );
 
                 if ( curElem.index() >= 1 ) {
 
@@ -221,11 +254,12 @@
                 var curElem = _swipeItem.filter( '.swiper-slide-active' ),
                     lengthItems = _sceneItem.length;
 
-                if ( curElem.index() + 1 < lengthItems ) {
+                if ( curElem.index() < lengthItems ) {
 
                     curElem.each( function () {
 
                         $( '.services__swipe' )[0].swiper.slideNext( false, 300 );
+                        _animateSwiper();
 
                     } );
 
@@ -245,6 +279,15 @@
                         in: {
                             effect: 'fadeIn',
                             delay: 3,
+                            shuffle: true
+                        }
+                    } );
+
+                    _sceneSecondItem.find( '.tlt-btn' ).textillate( {
+                        initialDelay: 200,
+                        in: {
+                            effect: 'fadeIn',
+                            delay: 50,
                             shuffle: true
                         }
                     } );
@@ -289,6 +332,66 @@
             _construct = function() {
                 _animateMainElement();
                 _hidePageScroll();
+                _onEvent();
+            };
+
+        //public properties
+
+        //public methods
+
+        _construct();
+    };
+
+    var ReferencesAnimare = function( obj ) {
+
+        //private properties
+        var _obj = obj,
+            _objTop = _obj.offset().top,
+            _window = $( window );
+
+        //private methods
+        var _onEvent = function(){
+                _window.on( {
+                    'scroll': function () {
+
+                        if ( ( _window.scrollTop() + _window.height() / 2 ) >= _objTop ){
+                            _obj.addClass( 'animate-block' )
+                        }
+
+                    }
+                } );
+            },
+            _construct = function() {
+                _onEvent();
+            };
+
+        //public properties
+
+        //public methods
+
+        _construct();
+    };
+
+    var NewsAnimare = function( obj ) {
+
+        //private properties
+        var _obj = obj,
+            _objTop = _obj.offset().top,
+            _window = $( window );
+
+        //private methods
+        var _onEvent = function(){
+                _window.on( {
+                    'scroll': function () {
+
+                        if ( ( _window.scrollTop() + _window.height() / 2 )  >= _objTop ){
+                            _obj.addClass( 'animate-block' )
+                        }
+
+                    }
+                } );
+            },
+            _construct = function() {
                 _onEvent();
             };
 

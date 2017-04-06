@@ -59,56 +59,6 @@
 
   }
 
-  &__section-scenes{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #fff;
-    z-index: 2;
-    overflow: hidden;
-    -webkit-transition: bottom 1s ease, opacity .5s ease;
-    transition: bottom 1s ease, opacity .5s ease;
-
-    &.hide{
-      opacity: 0;
-      bottom: 100%;
-    }
-
-  }
-
-  &__scene-item{
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
-    opacity: 0;
-    -webkit-transition: top 1s ease, bottom 1s ease, opacity .5s ease;
-    transition: top 1s ease, bottom 1s ease, opacity .5s ease;
-
-    &.active{
-      top: 0;
-      opacity: 1;
-    }
-
-    &.prev{
-      top: 0;
-      bottom: 100%;
-    }
-
-  }
-
-}
-
-.scroll__scrollbar-measure {
-  overflow: scroll;
-  position: absolute;
-  top: -9999px;
-  width: 100px;
-  height: 100px;
 }
 
 @media (min-width: $tablet-portrait) {
@@ -126,6 +76,44 @@
 @media (min-width: $desktop) {
 
   .site {
+
+    &__section-scenes{
+      position: relative;
+      height: 100vh;
+      background-color: #fff;
+      z-index: 2;
+      overflow: hidden;
+      -webkit-transition: bottom 1s ease, opacity .5s ease;
+      transition: bottom 1s ease, opacity .5s ease;
+
+      &.hide{
+
+      }
+
+    }
+
+    &__scene-item{
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      opacity: 0;
+      -webkit-transition: top 1s ease, bottom 1s ease, opacity .5s ease;
+      transition: top 1s ease, bottom 1s ease, opacity .5s ease;
+
+      &.active{
+        top: 0;
+        opacity: 1;
+      }
+
+      &.prev{
+        top: 0;
+        bottom: 100%;
+      }
+
+    }
 
     &__first-scene{
       z-index: 4;
@@ -151,6 +139,14 @@
       visibility: visible;
       padding-bottom: 0;
       overflow-y: hidden;
+    }
+
+    .scroll__scrollbar-measure {
+      overflow: scroll;
+      position: absolute;
+      top: -9999px;
+      width: 100px;
+      height: 100px;
     }
 
   }
