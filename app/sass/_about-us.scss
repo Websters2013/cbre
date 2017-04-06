@@ -1,0 +1,66 @@
+.about-us {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 20px 0;
+  background-color: #fff;
+
+  &:before{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1366px;
+    height: 1366px;
+    background-image: url(../img/bg-circus.jpg);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    content: '';
+  }
+
+  &__content{
+    position: relative;
+    max-width: 1450px;
+    margin: 0 auto;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 68px;
+    text-align: center;
+    z-index: 1;
+  }
+
+  &__link{
+    position: absolute;
+    bottom: 122px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #131724;
+    letter-spacing: 4px;
+    z-index: 1;
+
+    &:after{
+      position: relative;
+      top: -2px;
+      display: inline-block;
+      vertical-align: middle;
+      width: 6px;
+      height: 6px;
+      margin-left: 13px;
+      border-top: 2px solid #ccc;
+      border-right: 2px solid #ccc;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      content: '';
+      -webkit-transition: border-color .3s ease;
+      transition: border-color .3s ease;
+    }
+
+    &:hover:after{
+      border-top-color: $services-arrow-hover;
+      border-right-color: $services-arrow-hover;
+    }
+
+  }
+
+}
+

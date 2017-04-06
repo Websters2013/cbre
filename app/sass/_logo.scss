@@ -1,0 +1,20 @@
+.logo {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+
+  img{
+    display: block;
+    width: 100%;
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .logo {
+    top: 80px;
+    left: 71px;
+  }
+
+}

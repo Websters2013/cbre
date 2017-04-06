@@ -1,0 +1,28 @@
+@-webkit-keyframes arrowDown {
+  0%{
+    transform: translateY(0)
+  }
+  25% {
+    transform: translateY(1px)
+  }
+  75% {
+    transform: translateY(-4px)
+  }
+  100%{
+    transform: translateY(0)
+  }
+}
+@keyframes arrowDown {
+  0%{
+    transform: translateY(0)
+  }
+  25% {
+    transform: translateY(1px)
+  }
+  75% {
+    transform: translateY(-4px)
+  }
+  100%{
+    transform: translateY(0)
+  }
+}

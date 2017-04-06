@@ -1,0 +1,160 @@
+.language {
+  display: flex;
+  position: relative;
+  color: #333;
+  @include lato;
+  cursor: pointer;
+  z-index: 2;
+  -webkit-transition: border-color .3s ease;
+  transition: border-color .3s ease;
+
+  img{
+    margin-right: 10px;
+  }
+
+  &__current{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    padding: 6px 20px 7px;
+    color: #006f51;
+    font-size: 12px;
+    font-weight: 700;
+    z-index: 2;
+  }
+
+  &__popup {
+
+    ul{
+      display: flex;
+    }
+
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 6px 20px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-color .3s ease, color .3s ease;
+    -webkit-transition: background-color .3s ease, color .3s ease;
+
+    &.active {
+      color: #000!important;
+      background-color: #ccc!important;
+      cursor: default;
+    }
+
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .language {
+    position: absolute;
+    top: 77px;
+    right: 71px;
+    display: block;
+    width: 94px;
+    height: 40px;
+    padding: 11px 9px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+
+    &:after{
+      position: absolute;
+      top: 16px;
+      right: 9px;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      pointer-events: none;
+      border-color: rgba(187, 187, 187, 0);
+      border-top-color: #bbb;
+      border-width: 4px 4px 0 4px;
+      -webkit-transition: transform .3s ease, top .3s ease;
+      transition: transform .3s ease, top .3s ease;
+    }
+
+    &:hover {
+      border-color: #eee;
+
+      &:after {
+        top: 16px;
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+      }
+
+      .language__popup{
+        opacity: 1;
+        visibility: visible;
+      }
+
+    }
+
+    &__current{
+      padding: 0;
+      color: #333;
+    }
+
+    &__popup {
+      position: absolute;
+      top: 20px;
+      right: -1px;
+      left: -1px;
+      border-radius: 0 0 5px 5px;
+      margin-top: 2px;
+      border: 1px solid #eee;
+      border-top: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: visibility .3s ease, opacity .3s ease;
+      -webkit-transition: visibility .3s ease, opacity .3s ease;
+
+      &:before {
+        content:"";
+        position:absolute;
+        top:50%;
+        bottom:0;
+        left:10px;
+        right:10px;
+        -webkit-box-shadow:0 0 15px rgba(0,0,0,0.6);
+        -moz-box-shadow:0 0 15px rgba(0,0,0,0.6);
+        box-shadow:0 0 15px rgba(0,0,0,0.6);
+        -moz-border-radius:100px / 10px;
+        border-radius:100px / 10px;
+      }
+
+      ul{
+        position: relative;
+        display: block;
+        padding: 10px 0 5px;
+        background-color: #fff;
+        z-index: 1;
+      }
+
+    }
+
+    &__link{
+      padding: 6px 9px 7px;
+
+      &:hover {
+        color: #000;
+        background-color: #ccc;
+      }
+
+    }
+
+  }
+
+}
+
