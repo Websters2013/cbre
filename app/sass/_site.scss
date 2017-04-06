@@ -14,9 +14,16 @@
     height: 63px;
     background-color: $site-header-back;
     z-index: 3;
+    -webkit-transition: height .3s ease;
+    transition: height .3s ease;
+
+    &-layout{
+      position: relative;
+      height: inherit;
+    }
 
     &.minimize{
-
+      height: 60px;
     }
 
   }

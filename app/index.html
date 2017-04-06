@@ -10,6 +10,7 @@
     <title>Title</title>
 
     <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/index.css">
 
 </head>
@@ -21,63 +22,69 @@
         <!-- site__header -->
         <header class="site__header">
 
-            <!-- logo -->
-            <h1 class="logo">
-                <img src="img/logo.png" alt="logo"/>
-            </h1>
-            <!-- /logo -->
+            <!-- site__header-layout -->
+            <div class="site__header-layout">
 
-            <!-- site__mobile -->
-            <div class="site__mobile">
+                <!-- logo -->
+                <h1 class="logo">
+                    <img src="img/logo.png" alt="logo"/>
+                </h1>
+                <!-- /logo -->
 
-                <!-- menu -->
-                <nav class="menu">
-                    <a href="#" class="menu__item active">Home</a>
-                    <a href="#" class="menu__item">About us</a>
-                    <a href="#" class="menu__item">Services</a>
-                    <a href="#" class="menu__item">Refrences</a>
-                    <a href="#" class="menu__item">News</a>
-                    <a href="#" class="menu__item">Contact us</a>
-                </nav>
-                <!-- /menu -->
+                <!-- site__mobile -->
+                <div class="site__mobile">
 
-                <!-- language -->
-                <div class="language">
+                    <!-- menu -->
+                    <nav class="menu">
+                        <a href="#" class="menu__item active">Home</a>
+                        <a href="#" class="menu__item">About us</a>
+                        <a href="#" class="menu__item">Services</a>
+                        <a href="#" class="menu__item">Refrences</a>
+                        <a href="#" class="menu__item">News</a>
+                        <a href="#" class="menu__item">Contact us</a>
+                    </nav>
+                    <!-- /menu -->
 
-                    <!-- language__current -->
-                    <div class="language__current">
-                        <img src="img/flag-001.jpg" alt="img"/>EN
+                    <!-- language -->
+                    <div class="language">
+
+                        <!-- language__current -->
+                        <div class="language__current">
+                            <img src="img/flag-001.jpg" alt="img"/>EN
+                        </div>
+                        <!-- /language__current -->
+
+                        <!-- language__popup -->
+                        <div class="language__popup">
+                            <ul>
+                                <li>
+                                    <a href="#" class="language__link">
+                                        <img src="img/flag-002.jpg" alt="img"/>NL
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="language__link">
+                                        <img src="img/flag-003.jpg" alt="img"/>FR
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /language__popup -->
+
                     </div>
-                    <!-- /language__current -->
-
-                    <!-- language__popup -->
-                    <div class="language__popup">
-                        <ul>
-                            <li>
-                                <a href="#" class="language__link">
-                                    <img src="img/flag-002.jpg" alt="img"/>NL
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="language__link">
-                                    <img src="img/flag-003.jpg" alt="img"/>FR
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /language__popup -->
+                    <!-- /language -->
 
                 </div>
-                <!-- /language -->
+                <!-- /site__mobile -->
+
+                <!-- mobile-menu-btn -->
+                <div class="mobile-menu-btn">
+                    <span></span>
+                </div>
+                <!-- /mobile-menu-btn -->
 
             </div>
-            <!-- /site__mobile -->
-
-            <!-- mobile-menu-btn -->
-            <div class="mobile-menu-btn">
-                <span></span>
-            </div>
-            <!-- /mobile-menu-btn -->
+            <!-- /site__header-layout -->
 
         </header>
         <!-- /site__header -->
@@ -126,7 +133,7 @@
 
                 <!-- about-us__content -->
                 <div class="about-us__content">
-                    <p>CBRE Workspace is specialized in the implementation of new work environment: from space analysis to space planning, fit-out works/office refurbishment coordination, and move coordination.</p>
+                    <p class="tlt">CBRE Workspace is specialized in the implementation of new work environment: from space analysis to space planning, fit-out works/office refurbishment coordination, and move coordination.</p>
                 </div>
                 <!-- /about-us__content -->
 
@@ -607,6 +614,8 @@
     <script src="js/vendors/jquery-3.2.0.min.js"></script>
     <script src="js/vendors/wheel-indicator.js"></script>
     <script src="js/vendors/swiper.jquery.min.js"></script>
+    <script src="js/vendors/jquery.textillate.js"></script>
+    <script src="js/vendors/jquery.lettering.js"></script>
     <script src="js/index.min.js"></script>
 </body>
 </html>

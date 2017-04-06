@@ -12,55 +12,7 @@
             new Sliders( $( this ) );
         } );
 
-        $.each( $( '.site__mobile' ), function() {
-            new Menu( $( this ) );
-        } );
-
     } );
-
-    var Menu = function( obj ){
-
-        //private properties
-        var _obj = obj,
-            _self = this,
-            _btn = $( '.mobile-menu-btn' );
-
-        //private methods
-        var _constructor = function(){
-                _onEvents();
-            },
-            _onEvents = function(){
-
-                _btn.on( 'click', function() {
-
-                    if ( $( this).hasClass( 'close' ) ){
-                        _closeMenu();
-                    } else {
-                        _openMenu();
-                    }
-
-                } );
-
-                _obj[ 0 ].obj = _self;
-
-            },
-            _openMenu = function(){
-                _btn.addClass( 'close' );
-                _obj.addClass( 'visible' );
-            },
-            _closeMenu = function(){
-                _btn.removeClass( 'close' );
-                _obj.removeClass( 'visible' );
-            };
-
-        //public properties
-        _self.opened = false;
-
-        //public methods
-
-        _constructor();
-
-    };
 
     var Page = function( obj ) {
 
@@ -70,9 +22,11 @@
             _scrollConteiner = $( 'html' ),
             _sceneItem = _obj.find( '.site__scene-item' ),
             _sceneFirstItem = _obj.find( '.site__first-scene' ),
+            _sceneSecondItem = _obj.find( '.site__second-scene' ),
             _sceneSwipeItem = _obj.find( '.site__third-scene' ),
             _swipeItem = _sceneSwipeItem.find( '.services__item' ),
-            _header = $( '.site__header' ),
+            _site = $( '.site' ),
+            _header = _site.find( '.site__header' ),
             _indicator,
             _indicatorSwiper,
             _canScroll = false,
@@ -140,6 +94,11 @@
                 } );
                 _indicator.getOption( 'preventMouse' );
             },
+            _animateMainElement = function () {
+
+                _site.addClass( 'animate' );
+
+            },
             _getScrollWidth = function (){
                 var scrollDiv = document.createElement( 'div'),
                     scrollBarWidth;
@@ -175,6 +134,7 @@
 
                         _checkSwiperActive();
                         _checkHeader();
+                        _checkSecondScene();
 
                     } );
 
@@ -196,6 +156,7 @@
 
                         _checkHeader();
                         _checkSwiperActive();
+                        _checkSecondScene();
 
                     } );
 
@@ -276,15 +237,34 @@
                 }
 
             },
+            _checkSecondScene = function () {
+
+                if ( _sceneSecondItem.hasClass( 'active' ) ){
+
+                    _sceneSecondItem.find( '.tlt' ).textillate( {
+                        in: {
+                            effect: 'fadeIn',
+                            delay: 3,
+                            shuffle: true
+                        }
+                    } );
+
+                }
+
+            },
             _checkHeader = function () {
 
                 if ( !( _sceneFirstItem.hasClass( 'active' ) ) ){
 
                     _header.addClass( 'minimize' )
 
+                } else {
+
+                    _header.removeClass( 'minimize' )
+
                 }
 
-            }
+            },
             _hideScenes = function () {
                 _obj.addClass( 'hide' );
                 _indicator.turnOff();
@@ -293,14 +273,21 @@
                     overflowY: 'auto',
                     paddingRight: 0
                 } );
+                _header.css( {
+                    paddingRight: 0
+                } );
             },
             _hidePageScroll= function () {
                 _scrollConteiner.css( {
                     overflowY: 'hidden',
                     paddingRight: _getScrollWidth()
                 } );
+                _header.css( {
+                    paddingRight: _getScrollWidth()
+                } );
             },
             _construct = function() {
+                _animateMainElement();
                 _hidePageScroll();
                 _onEvent();
             };

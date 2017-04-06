@@ -3,6 +3,10 @@
   top: 15px;
   left: 15px;
 
+  opacity: 0;
+  transition: opacity .3s ease;
+  -webkit-transition: opacity .3s ease;
+
   img{
     display: block;
     width: 100%;
@@ -10,11 +14,16 @@
 
 }
 
+.animate .logo{
+  opacity: 1;
+}
+
 @media (min-width: $tablet-portrait) {
 
   .logo {
-    top: 80px;
+    top: auto;
     left: 71px;
+    bottom: 8px;
   }
 
 }

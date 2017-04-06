@@ -4,6 +4,9 @@
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 15px;
+  opacity: 0;
+  transition: opacity .3s ease;
+  -webkit-transition: opacity .3s ease;
 
   &__item{
     margin-bottom: 20px;
@@ -22,12 +25,16 @@
 
 }
 
+.animate .menu{
+  opacity: 1;
+}
+
 @media (min-width: $desktop) {
 
   .menu {
     flex-direction: row;
     position: absolute;
-    top: 86px;
+    bottom: 18px;
     left: 50%;
     margin-bottom: 0;
     -webkit-transform: translateX(-50%);
