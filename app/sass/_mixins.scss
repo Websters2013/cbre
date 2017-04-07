@@ -15,6 +15,7 @@
   }
 }
 
+//absoluteCenter
 @mixin absoluteCenter() {
   position: absolute;
   top: 50%;
@@ -30,4 +31,29 @@
   position: absolute;
   top: 50%;
   transform: translateY( -50% );
+}
+
+//justify-flex
+@mixin justify-flex() {
+  display: flex;
+  justify-content: space-between;
+}
+
+//align-center-flex
+@mixin align-center-flex() {
+  display: flex;
+  align-items: center;
+}
+
+//blockCentered
+@mixin blockCentered() {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+//transition
+@mixin transition( $property, $duration, $delay ) {
+  -webkit-transition: $property $duration+s linear $delay+s;
+  transition: $property $duration+s linear $delay+s;
 }

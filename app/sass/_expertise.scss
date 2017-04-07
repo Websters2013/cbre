@@ -1,0 +1,63 @@
+.expertise {
+  margin-bottom: 50px;
+
+  &__title {
+    margin-bottom: 40px;
+    font-size: 35px;
+    line-height: 45px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: $site-content;
+    white-space: pre-line;
+    text-transform: uppercase;
+  }
+  &__list {
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+
+    li {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .expertise {
+
+    &__list {
+      @include justify-flex();
+      flex-flow: row wrap;
+
+      li {
+        display: inline-block;
+        vertical-align: top;
+        width: 48.8%;
+      }
+    }
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .expertise {
+    margin-bottom: 107px;
+
+    &__title {
+      font-size: 60px;
+      line-height: 72px;
+      letter-spacing: 9.4px;
+    }
+    &__list {
+      font-size: 29px;
+      line-height: 36px;
+
+      li {
+        margin-bottom: 36px;
+      }
+    }
+  }
+}
