@@ -69,6 +69,8 @@
   }
 
   &__hero {
+    position: relative;
+    z-index: 2;
     padding: 128px 15px 100px;
     color: $site-content;
     text-align: center;
@@ -181,6 +183,10 @@
     &__hero {
       padding: 16.9% 15px 10%;
       //padding: 323px 15px 195px;
+
+      &_inner {
+        padding: 16.9% 15px 4.9%;
+      }
     }
     &__hero-title {
       font-size: 60px;

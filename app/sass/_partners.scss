@@ -1,0 +1,28 @@
+
+.partners {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+
+
+  &__item {
+    display: inline-block;
+    margin: 0 20px 0;
+
+    img {
+
+    }
+  }
+}
+
+@media (min-width: $tablet-portrait) {
+
+
+}
+
+@media (min-width: $desktop) {
+
+
+
+}
