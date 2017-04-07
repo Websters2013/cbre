@@ -13,9 +13,6 @@
 @media (min-width: $tablet-portrait) {
 
   .logo {
-    top: auto;
-    left: 71px;
-    bottom: 8px;
   }
 
 }
@@ -23,6 +20,9 @@
 @media (min-width: $desktop) {
 
   .logo {
+    left: 71px;
+    top: auto;
+    bottom: 8px;
     opacity: 0;
     transition: opacity .3s ease;
     -webkit-transition: opacity .3s ease;

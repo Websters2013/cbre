@@ -81,20 +81,14 @@
 
   &__pagination{
     display: flex;
-    flex-direction: column;
     align-items: flex-end;
     justify-content: center;
-    position: absolute;
-    top: 75%;
-    right: 0;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
     z-index: 1;
 
     span{
       width: 28px;
       height: 3px;
-      margin: 7.5px 0;
+      margin: 7.5px 5px;
       background-color: $services-arrow;
       border-radius: 0;
       opacity: 1;
@@ -167,10 +161,6 @@
       margin-top: 30px;
     }
 
-    &__pagination{
-      top: 20%;
-    }
-
   }
 
 }
@@ -206,10 +196,6 @@
 
     &__more{
       margin-top: 63px;
-    }
-
-    &__pagination{
-      top: 50%;
     }
 
   }
@@ -259,7 +245,13 @@
     }
 
     &__pagination{
+      position: absolute;
+      flex-flow: column;
+      top: 50%;
+      right: 0;
       margin-top: -8px;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
 
       span{
         -webkit-transform: scale(0);

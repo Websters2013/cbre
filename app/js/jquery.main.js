@@ -12,6 +12,7 @@
 
         //private properties
         var _obj = obj,
+            _scrollConteiner = $( 'html' ),
             _btn = $( '.mobile-menu-btn' );
 
         //private methods
@@ -34,10 +35,18 @@
             _openMenu = function(){
                 _btn.addClass( 'close' );
                 _obj.addClass( 'visible' );
+
+                _scrollConteiner.css( {
+                    overflowY: 'hidden'
+                } );
             },
             _closeMenu = function(){
                 _btn.removeClass( 'close' );
                 _obj.removeClass( 'visible' );
+
+                _scrollConteiner.css( {
+                    overflowY: 'auto'
+                } );
             };
 
         //public properties
