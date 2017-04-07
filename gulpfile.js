@@ -30,6 +30,16 @@ var paths = {
                 'app/js/jquery.main.js',
                 'app/js/jquery.animation.js'
             ]
+        },
+        {
+            dist: 'contacts.min.js',
+            contains: [
+                'app/js/jquery.main.js',
+                'app/js/jquery.animation.js',
+                'app/js/jquery.form.validator.js',
+                'app/js/jquery.map.js',
+                'app/js/jquery.contacts.js'
+            ]
         }
     ],
     vendorScripts: 'app/js/vendors/**/*.js',
