@@ -28,6 +28,24 @@ var paths = {
             dist: 'services.min.js',
             contains: [
                 'app/js/jquery.main.js',
+                'app/js/jquery.inside.js',
+                'app/js/jquery.animation.js'
+            ]
+        },
+        {
+            dist: 'references.min.js',
+            contains: [
+                'app/js/jquery.main.js',
+                'app/js/jquery.inside.js',
+                'app/js/jquery.animation.js',
+                'app/js/jquery.references.js'
+            ]
+        },
+        {
+            dist: 'news.min.js',
+            contains: [
+                'app/js/jquery.main.js',
+                'app/js/jquery.inside.js',
                 'app/js/jquery.animation.js'
             ]
         },

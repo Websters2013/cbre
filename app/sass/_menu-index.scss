@@ -32,6 +32,9 @@
     margin-bottom: 0;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity .3s ease;
+    -webkit-transition: opacity .3s ease;
 
     &__item{
       position: relative;
@@ -70,6 +73,10 @@
 
     }
 
+  }
+
+  .animate .menu{
+    opacity: 1;
   }
 
 }

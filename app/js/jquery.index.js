@@ -394,7 +394,7 @@
             },
             _checkScroll = function () {
 
-                if ( ( _window.scrollTop() + _window.height() / 2 ) >= _objTop ){
+                if ( ( _window.scrollTop() + _window.height() * 0.75 ) >= _objTop ){
                     _obj.addClass( 'animate-block' )
                 }
 
@@ -430,7 +430,7 @@
             },
             _checkScroll = function () {
 
-                if ( ( _window.scrollTop() + _window.height() / 2 )  >= _objTop ){
+                if ( ( _window.scrollTop() + _window.height() * 0.75 )  >= _objTop ){
                     _obj.addClass( 'animate-block' )
                 }
 
