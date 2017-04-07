@@ -74,6 +74,8 @@
 
   .site {
     position: relative;
+    height: 100%;
+    overflow-y: hidden;
 
     &:before, &:after{
       position: fixed;
@@ -84,17 +86,24 @@
       height: 100%;
       -webkit-transform: translateX(-50%) translateY(-50%);
       transform: translateX(-50%) translateY(-50%);
+      opacity: 0;
+      -webkit-transition: opacity .3s ease;
+      transition: opacity .3s ease;
       content: '';
     }
 
     &:before{
       background: url(../img/bg-big-circle.svg) no-repeat center;
       background-size: auto 80%;
+      -webkit-transition-delay: 1.3s;
+      transition-delay: 1.3s;
     }
 
     &:after{
       background: url(../img/bg-small-circle.svg) no-repeat center;
       background-size: auto 30%;
+      -webkit-transition-delay: 1.6s;
+      transition-delay: 1.6s;
     }
 
     &__header{
@@ -164,12 +173,12 @@
       overflow-y: hidden;
     }
 
-    .scroll__scrollbar-measure {
-      overflow: scroll;
-      position: absolute;
-      top: -9999px;
-      width: 100px;
-      height: 100px;
+    &.show-circles{
+
+      &:before, &:after{
+        opacity: 1;
+      }
+
     }
 
   }

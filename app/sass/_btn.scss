@@ -11,31 +11,62 @@
   @include lato;
   font-size: 14px;
   text-transform: uppercase;
+  white-space: nowrap;
   -webkit-transition: background-color .3s ease, color .3s ease, box-shadow .3s ease;
   transition: background-color .3s ease, color .3s ease, box-shadow .3s ease;
 
   &_1{
-    position: absolute;
-    left: 50%;
-    bottom: 120px;
+    display: inline-flex;
     height: 59px;
-    padding: 0 36px;
+    margin-bottom: 50px;
+    padding: 0 23px;
     border: 2px solid #006f51;
-    letter-spacing: 1.5px;
+    letter-spacing: 0.9px;
     border-radius: 50px;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-
-    &:hover {
-      color: #fff;
-      background-color: #006f51;
-      box-shadow: 0 10px 30px 0 rgba(0, 111, 81, 0.2);
-    }
 
     &:active {
       color: #fff;
       background-color: #006f51;
       box-shadow: 0 10px 30px 0 rgba(0, 111, 81, 0.2);
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-landscape) {
+
+  .btn{
+
+    &_1{
+      position: absolute;
+      left: 50%;
+      bottom: 60px;
+      margin-bottom: 0;
+      padding: 0 36px;
+      letter-spacing: 1.5px;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      z-index: 2;
+
+      &:hover {
+        color: #fff;
+        background-color: #006f51;
+        box-shadow: 0 10px 30px 0 rgba(0, 111, 81, 0.2);
+      }
+
+    }
+
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .btn{
+
+    &_1{
+      //bottom: 120px;
     }
 
   }
