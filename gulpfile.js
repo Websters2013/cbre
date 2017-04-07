@@ -26,7 +26,8 @@ var paths = {
         {
             dist: 'services.min.js',
             contains: [
-                'app/js/jquery.main.js'
+                'app/js/jquery.main.js',
+                'app/js/jquery.animation.js'
             ]
         }
     ],
