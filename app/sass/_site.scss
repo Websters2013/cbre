@@ -101,9 +101,10 @@
 
   .site {
 
-
+    &__header{
+      height: 120px;
+    }
   }
-
 }
 
 @media (min-width: $desktop) {
@@ -151,55 +152,6 @@
 
     }
 
-    &__scene-item{
-      position: absolute!important;
-      top: 100%;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      overflow: hidden;
-      opacity: 0;
-      -webkit-transition: top 1s ease, bottom 1s ease, opacity .5s ease;
-      transition: top 1s ease, bottom 1s ease, opacity .5s ease;
-
-      &.active{
-        top: 0;
-        opacity: 1;
-      }
-
-      &.prev{
-        top: 0;
-        bottom: 100%;
-      }
-
-    }
-
-}
-
-.scroll__scrollbar-measure {
-  overflow: scroll;
-  position: absolute;
-  top: -9999px;
-  width: 100px;
-  height: 100px;
-}
-
-@media (min-width: $tablet-portrait) {
-
-  .site {
-
-    &__header{
-      height: 120px;
-    }
-
-  }
-
-}
-
-@media (min-width: $desktop) {
-
-  .site {
-
     &__first-scene{
       z-index: 4;
     }
@@ -237,14 +189,35 @@
       font-size: 20px;
       line-height: 30px;
     }
+    &__scene-item{
+      position: absolute!important;
+      top: 100%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      opacity: 0;
+      -webkit-transition: top 1s ease, bottom 1s ease, opacity .5s ease;
+      transition: top 1s ease, bottom 1s ease, opacity .5s ease;
 
-    .scroll__scrollbar-measure {
-      overflow: scroll;
-      position: absolute;
-      top: -9999px;
-      width: 100px;
-      height: 100px;
+      &.active{
+        top: 0;
+        opacity: 1;
+      }
+
+      &.prev{
+        top: 0;
+        bottom: 100%;
+      }
+
     }
-
 }
 
+  .scroll__scrollbar-measure {
+  overflow: scroll;
+  position: absolute;
+  top: -9999px;
+  width: 100px;
+  height: 100px;
+  }
+}
