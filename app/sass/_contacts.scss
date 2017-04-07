@@ -151,10 +151,12 @@
     color: $main-text-color;
   }
   &__form-wrap {
+    text-align: center;
 
     fieldset {
       position: relative;
       margin: 0 30px 40px;
+      text-align: left;
     }
     input,
     textarea {
