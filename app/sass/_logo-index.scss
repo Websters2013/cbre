@@ -23,6 +23,13 @@
     left: 71px;
     top: auto;
     bottom: 8px;
+    opacity: 0;
+    transition: opacity .3s ease;
+    -webkit-transition: opacity .3s ease;
+  }
+
+  .animate .logo{
+    opacity: 1;
   }
 
 }

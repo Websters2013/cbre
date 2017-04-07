@@ -1,0 +1,65 @@
+.latest-news {
+  max-width: 1760px;
+  margin: 0 auto;
+
+  &__item{
+
+  }
+
+  &__img{
+    width: 970px;
+    margin: 0 auto;
+
+    img{
+      display: block;
+      width: 100%;
+    }
+
+  }
+
+  &__data{
+
+  }
+
+  &__data{
+    position: absolute;
+  }
+
+  &__year{
+    position: absolute;
+    color: #ccc;
+    font-size: 92px;
+    font-weight: 100;
+  }
+
+  &__content{
+    width: 570px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 28px;
+
+    h2{
+      font-size: 48px;
+      font-weight: 300;
+      line-height: 58px;
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .latest-news {
+
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .latest-news {
+
+  }
+
+}
