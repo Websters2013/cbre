@@ -37,6 +37,7 @@
             _heroSkip = _sceneFirstItem.find( '.hero__skip' ),
             _indicator,
             _indicatorSwiper,
+            _canScroll = true,
             _sceneActive = true;
 
         //private methods
@@ -78,12 +79,13 @@
                         if ( _scrollConteiner.scrollTop() == 0 && _sceneActive ){
                             _obj.removeClass( 'hide' );
                             _indicatorSwiper.turnOn();
+                            _canScroll = true;
                             _hidePageScroll();
                         } else {
                             setTimeout( function () {
                                 _sceneActive = true;
                                 return false;
-                            }, 1000 );
+                            }, 400 );
                         }
 
                     }
@@ -100,11 +102,36 @@
 
                         var directionY = ( e.direction == 'up' ) ? -1 : 1;
 
-                        _checkScroll( directionY );
+                        if( !_canScroll ){
+                            return false;
+                        } else {
+                            _checkScroll( directionY );
+                            _canScroll = false;
+                        }
 
                     }
                 } );
                 _indicator.getOption( 'preventMouse' );
+
+                _indicatorSwiper = new WheelIndicator( {
+                    elem: document.querySelector( '.site__third-scene' ),
+                    callback: function( e ){
+
+                        console.log( _canScroll )
+
+                        var directionY = ( e.direction == 'up' ) ? -1 : 1;
+
+                        if( !_canScroll ){
+                            return false;
+                        } else {
+                            _checkSwiperScroll( directionY );
+                            _canScroll = false;
+                        }
+
+                    }
+                } );
+                _indicatorSwiper.getOption( 'preventMouse' );
+                _indicatorSwiper.turnOff();
             },
             _animateMainElement = function () {
 
@@ -136,18 +163,16 @@
 
             },
             _checkScroll = function ( direction ) {
-                if ( direction > 0 ){
+                if ( direction > 0 && _canScroll ){
                     _checkSceneDown();
                 }
-                else if ( direction < 0 && _window.scrollTop() == 0 ) {
+                else if ( direction < 0 && _canScroll && _window.scrollTop() == 0 ) {
                     _checkSceneUp();
                 }
             },
             _checkSceneUp = function () {
 
                 var curElem = _sceneItem.filter( '.active' );
-
-                console.log( curElem.data( 'index' ) )
 
                 if ( curElem.data( 'index' ) - 1 >= 1 ) {
 
@@ -163,6 +188,10 @@
                     } );
 
                 }
+
+                setTimeout( function () {
+                    _canScroll = true;
+                }, 400 )
 
             },
             _checkSceneDown = function () {
@@ -184,36 +213,26 @@
 
                     } );
 
-                } else {
-
-                    _hideScenes();
-                    _sceneActive = true;
-                    return false;
-
                 }
 
                 _showCircles();
+
+                setTimeout( function () {
+                    _canScroll = true;
+                }, 400 )
 
             },
             _checkSwiperActive = function () {
 
                 if ( _sceneSwipeItem.hasClass( 'active' ) ){
 
+                    _canScroll = false;
+
                     _sceneSwipeItem.addClass( 'animate-scene' );
 
-                    _indicator.turnOff();
-
-                    _indicatorSwiper = new WheelIndicator( {
-                        elem: document.querySelector( '.site__third-scene' ),
-                        callback: function( e ){
-
-                            var directionY = ( e.direction == 'up' ) ? -1 : 1;
-
-                            _checkSwiperScroll( directionY );
-
-                        }
-                    } );
-                    _indicatorSwiper.getOption( 'preventMouse' );
+                    setTimeout( function () {
+                        _indicatorSwiper.turnOn();
+                    }, 500 )
 
                     _animateSwiper();
 
@@ -239,10 +258,15 @@
 
                 } else if ( curElem.index() == 0 ) {
 
+                    _canScroll = true;
                     _indicatorSwiper.turnOff();
                     _indicator.turnOn();
 
                 }
+
+                setTimeout( function () {
+                    _canScroll = true;
+                }, 300 )
 
             },
             _checkSwiperDown = function () {
@@ -261,10 +285,14 @@
 
                 } else {
 
-                    _indicatorSwiper.turnOff();
-                    _indicator.turnOn();
+                    _canScroll = true;
+                    _hideScenes();
 
                 }
+
+                setTimeout( function () {
+                    _canScroll = true;
+                }, 300 )
 
             },
             _checkSecondScene = function () {
@@ -312,6 +340,7 @@
             _hideScenes = function () {
                 _obj.addClass( 'hide' );
                 _indicator.turnOff();
+                _indicatorSwiper.turnOff();
                 _sceneActive = false;
                 _scrollConteiner.css( {
                     overflowY: 'auto'
