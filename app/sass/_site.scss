@@ -22,9 +22,6 @@
       height: inherit;
     }
 
-    &.minimize{
-      height: 60px;
-    }
   }
 
   &__footer{
@@ -57,6 +54,7 @@
     }
 
   }
+
   &__content {
 
   }
@@ -73,6 +71,7 @@
     color: $site-content;
     text-align: center;
   }
+
   &__hero-title {
     margin-bottom: 23px;
     font-size: 35px;
@@ -80,6 +79,7 @@
     letter-spacing: 3px;
     text-transform: uppercase;
   }
+
   &__hero-text {
     display: inline-block;
     width: 100%;
@@ -144,6 +144,11 @@
 
     &__header{
       height: 120px;
+
+      &.minimize{
+        height: 60px;
+      }
+
     }
 
     &__mobile{
@@ -157,16 +162,21 @@
     }
 
     &__hero {
+      position: relative;
       padding: 16.9% 15px 10%;
+      z-index: 2;
       //padding: 323px 15px 195px;
     }
+
     &__hero-title {
       font-size: 60px;
     }
+
     &__hero-text {
       font-size: 20px;
       line-height: 30px;
     }
+
     &__scene-item{
       position: absolute!important;
       top: 100%;
