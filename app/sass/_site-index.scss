@@ -25,6 +25,7 @@
     &.minimize{
       height: 60px;
     }
+
   }
 
   &__footer{
@@ -57,44 +58,7 @@
     }
 
   }
-  &__content {
 
-  }
-
-  &__centered {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
-
-  &__hero {
-    padding: 128px 15px 100px;
-    color: $site-content;
-    text-align: center;
-  }
-  &__hero-title {
-    margin-bottom: 23px;
-    font-size: 35px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-  }
-  &__hero-text {
-    display: inline-block;
-    width: 100%;
-    max-width: 770px;
-    font-size: 18px;
-    line-height: 23px;
-    font-weight: 300;
-  }
-  .scroll__scrollbar-measure {
-    overflow: scroll;
-    position: absolute;
-    top: -9999px;
-    width: 100px;
-    height: 100px;
-  }
 }
 
 @media (min-width: $tablet-portrait) {
@@ -110,6 +74,8 @@
 
   .site {
     position: relative;
+    height: 100%;
+    overflow-y: hidden;
 
     &:before, &:after{
       position: fixed;
@@ -120,17 +86,24 @@
       height: 100%;
       -webkit-transform: translateX(-50%) translateY(-50%);
       transform: translateX(-50%) translateY(-50%);
+      opacity: 0;
+      -webkit-transition: opacity .3s ease;
+      transition: opacity .3s ease;
       content: '';
     }
 
     &:before{
       background: url(../img/bg-big-circle.svg) no-repeat center;
       background-size: auto 80%;
+      -webkit-transition-delay: 1.3s;
+      transition-delay: 1.3s;
     }
 
     &:after{
       background: url(../img/bg-small-circle.svg) no-repeat center;
       background-size: auto 30%;
+      -webkit-transition-delay: 1.6s;
+      transition-delay: 1.6s;
     }
 
     &__header{
@@ -174,32 +147,6 @@
 
     }
 
-}
-
-.scroll__scrollbar-measure {
-  overflow: scroll;
-  position: absolute;
-  top: -9999px;
-  width: 100px;
-  height: 100px;
-}
-
-@media (min-width: $tablet-portrait) {
-
-  .site {
-
-    &__header{
-      height: 120px;
-    }
-
-  }
-
-}
-
-@media (min-width: $desktop) {
-
-  .site {
-
     &__first-scene{
       z-index: 4;
     }
@@ -226,25 +173,15 @@
       overflow-y: hidden;
     }
 
-    &__hero {
-      padding: 16.9% 15px 10%;
-      //padding: 323px 15px 195px;
-    }
-    &__hero-title {
-      font-size: 60px;
-    }
-    &__hero-text {
-      font-size: 20px;
-      line-height: 30px;
+    &.show-circles{
+
+      &:before, &:after{
+        opacity: 1;
+      }
+
     }
 
-    .scroll__scrollbar-measure {
-      overflow: scroll;
-      position: absolute;
-      top: -9999px;
-      width: 100px;
-      height: 100px;
-    }
+  }
 
 }
 

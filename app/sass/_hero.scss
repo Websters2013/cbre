@@ -1,27 +1,28 @@
 .hero {
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
   align-items: center;
-  padding-bottom: 80px;
+  padding: 90px 0 32px;
   @include lato;
   text-align: center;
   background-color: #fff;
 
   &__content{
-    margin-bottom: 109px;
-    line-height: 48px;
+    margin-bottom: 50px;
+    line-height: 32px;
     text-transform: uppercase;
 
     p{
-      font-size: 24px;
-      letter-spacing: 9.6px;
+      font-size: 16px;
+      letter-spacing: 2px;
     }
 
     h2{
-      font-size: 36px;
+      font-size: 24px;
       font-weight: 900;
-      letter-spacing: 14.4px;
+      letter-spacing: 5.4px;
     }
 
   }
@@ -37,47 +38,175 @@
 
   }
 
-  &__skip{
-    position: absolute;
-    left: 50%;
-    bottom: -41px;
-    width: 80px;
-    height: 80px;
-    border-radius: 50px;
-    background-color: #fff;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    -webkit-transition: box-shadow .3s ease;
-    transition: box-shadow .3s ease;
+}
 
+@media (min-width: $tablet-portrait) {
 
-    &:hover{
-      box-shadow: 0 26px 30px 0 rgba(0, 0, 0, 0.1);
+  .hero {
+    padding: 120px 20px;
 
-      svg{
-        fill: #006f50;
+    &__content{
+      line-height: 48px;
+
+      p{
+        font-size: 24px;
+        letter-spacing: 9.6px;
+      }
+
+      h2{
+        font-size: 36px;
+        letter-spacing: 14.4px;
       }
 
     }
 
-    svg{
-      position: absolute;
-      top: 25px;
-      left: calc( 50% - 8.5px);
-      width: 17px;
-      enable-background:new 14 -4.7 24 55.4;
-      animation-name: arrowDown;
-      animation-duration: 1s;
-      animation-timing-function: linear;
-      animation-direction: normal;
-      animation-iteration-count: infinite;
-      animation-fill-mode: none;
-      animation-play-state: running;
-      -webkit-transition: fill .3s ease;
-      transition: fill .3s ease;
+  }
 
-      .st0{
-        fill: none;
+}
+
+@media (min-width: $desktop) {
+
+  .hero{
+    padding: 0 72px 60px;
+
+    &__content{
+      margin-bottom: 70px;
+
+      p{
+        opacity: 0;
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+        -webkit-transition: opacity .4s ease, -webkit-transform .4s ease .1s;
+        transition: opacity .4s ease, transform .4s ease .1s;
+      }
+
+      h2{
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+        opacity: 0;
+        -webkit-transition: opacity .4s ease .3s, -webkit-transform .4s ease .4s;
+        transition: opacity .4s ease .3s, transform .4s ease .4s;
+      }
+
+    }
+
+    &__preview{
+      display: flex;
+      align-items: center;
+      max-height: 45%;
+      overflow: hidden;
+
+      img{
+        opacity: 0;
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+        -webkit-transition: opacity .4s ease, -webkit-transform .4s ease .1s;
+        transition: opacity .4s ease, transform .4s ease .1s;
+      }
+
+      .btn{
+        opacity: 0;
+        -webkit-transform: translateY(-10px) translateX(-50%);
+        transform: translateY(-10px) translateX(-50%);
+        -webkit-transition: opacity .4s ease .4s, -webkit-transform .4s ease .3s;
+        transition: opacity .4s ease .4s, transform .4s ease .3s;
+      }
+
+    }
+
+    &__skip {
+      position: absolute;
+      left: calc( 50% - 40px );
+      bottom: 20px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50px;
+      background-color: #fff;
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      -webkit-transition: box-shadow .3s ease, transform .4s ease .8s;
+      transition: box-shadow .3s ease, transform .4s ease .8s;
+
+      &:hover {
+        box-shadow: 0 26px 30px 0 rgba(0, 0, 0, 0.1);
+
+        svg {
+          fill: #006f50;
+        }
+
+      }
+
+      svg {
+        position: absolute;
+        top: 25px;
+        left: calc( 50% - 8.5px);
+        width: 17px;
+        enable-background:new 14 -4.7 24 55.4;
+        animation-name: arrowDown;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-direction: normal;
+        animation-iteration-count: infinite;
+        animation-fill-mode: none;
+        animation-play-state: running;
+        -webkit-transition: fill .3s ease, opacity .3s ease 1.2s;
+        transition: fill .3s ease, opacity .3s ease 1.2s;
+        opacity: 0;
+
+        .st0{
+          fill: none;
+        }
+
+      }
+
+    }
+
+  }
+
+  .animate{
+
+    .hero {
+
+      &__content{
+
+        p{
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+          opacity: 1;
+        }
+
+        h2{
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+          opacity: 1;
+        }
+
+      }
+
+      &__preview{
+
+        img{
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+          opacity: 1;
+        }
+
+        .btn{
+          -webkit-transform: translateY(0) translateX(-50%);
+          transform: translateY(0) translateX(-50%);
+          opacity: 1;
+        }
+
+      }
+
+      &__skip{
+        -webkit-transform: scale(1);
+        transform: scale(1);
+
+        svg{
+          opacity: 1;
+        }
+
       }
 
     }

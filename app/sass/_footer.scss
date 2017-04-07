@@ -9,21 +9,18 @@
   }
 
   &__frame{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 0 60px 69px 0;
+    margin: 0 15px 40px 15px;
   }
 
   &__info{
-    width: 330px;
-    margin-right: -109px;
-    color: #999999;
+    margin-bottom: 20px;
+    color: #999;
     font-size: 14px;
     line-height: 22px;
   }
 
   &__address{
+    margin-bottom: 25px;
     padding-top: 2px;
     color: #131724;
     font-size: 14px;
@@ -49,41 +46,45 @@
   }
 
   &__line{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 0 15px;
     text-transform: uppercase;
     color: #bbb;
     font-size: 10px;
     letter-spacing: 1px;
   }
 
-  &__developer a{
-    display: inline-block;
-    position: relative;
-    padding-bottom: 5px;
-    color: #006f51;
+  &__developer{
+    margin-top: 25px;
 
-    &:after{
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 2px;
-      background-color: #006f51;
-      opacity: 0;
-      -webkit-transition: opacity .3s ease;
-      transition: opacity .3s ease;
-      content: '';
-    }
+    a{
+      display: inline-block;
+      position: relative;
+      padding-bottom: 5px;
+      color: #006f51;
 
-    &:hover:after{
-      opacity: 1;
+      &:after{
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background-color: #006f51;
+        opacity: 0;
+        -webkit-transition: opacity .3s ease;
+        transition: opacity .3s ease;
+        content: '';
+      }
+
+      &:hover:after{
+        opacity: 1;
+      }
+
     }
 
   }
 
   &__terms{
+    margin-bottom: 25px;
 
     a{
       position: relative;
@@ -113,6 +114,64 @@
         opacity: 1;
       }
 
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-landscape) {
+
+  .footer {
+
+    &__frame{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    &__info {
+      width: 240px;
+      margin-bottom: 0;
+    }
+
+    &__address{
+      margin-bottom: 0;
+    }
+
+    &__line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__developer {
+      margin-top: 0;
+    }
+
+    &__terms {
+      margin-bottom: 0;
+    }
+
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .footer {
+
+    &__frame{
+      margin: 0 72px 69px 72px;
+    }
+
+    &__info {
+      width: 405px;
+      margin-right: -109px;
+    }
+
+    &__line {
+      padding: 0 72px;
     }
 
   }
