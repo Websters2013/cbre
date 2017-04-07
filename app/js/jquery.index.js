@@ -37,6 +37,7 @@
             _heroSkip = _sceneFirstItem.find( '.hero__skip' ),
             _indicator,
             _indicatorSwiper,
+            _firstSlide = true,
             _canScroll = true,
             _sceneActive = true;
 
@@ -96,6 +97,7 @@
                         return false;
                     }
                 } );
+
                 _indicator = new WheelIndicator( {
                     elem: document.querySelector( '.site__section-scenes' ),
                     callback: function( e ){
@@ -116,8 +118,6 @@
                 _indicatorSwiper = new WheelIndicator( {
                     elem: document.querySelector( '.site__third-scene' ),
                     callback: function( e ){
-
-                        console.log( _canScroll )
 
                         var directionY = ( e.direction == 'up' ) ? -1 : 1;
 
@@ -230,11 +230,9 @@
 
                     _sceneSwipeItem.addClass( 'animate-scene' );
 
-                    setTimeout( function () {
-                        _indicatorSwiper.turnOn();
-                    }, 500 )
-
                     _animateSwiper();
+
+                    _indicatorSwiper.turnOn();
 
                     return false
                 }
@@ -256,11 +254,12 @@
 
                     $( '.services__swipe' )[0].swiper.slidePrev( false, 300 );
 
-                } else if ( curElem.index() == 0 ) {
-
-                    _canScroll = true;
-                    _indicatorSwiper.turnOff();
-                    _indicator.turnOn();
+                    if ( curElem.index() == 1 ){
+                        _canScroll = true;
+                        _indicatorSwiper.turnOff();
+                        _indicator.turnOn();
+                        _firstSlide = true;
+                    }
 
                 }
 
@@ -274,7 +273,7 @@
                 var curElem = _swipeItem.filter( '.swiper-slide-active' ),
                     lengthItems = _sceneItem.length;
 
-                if ( curElem.index() < lengthItems ) {
+                if ( curElem.index() < lengthItems && !_firstSlide ) {
 
                     curElem.each( function () {
 
@@ -283,11 +282,15 @@
 
                     } );
 
-                } else {
+                } else if ( !_firstSlide ) {
 
                     _canScroll = true;
                     _hideScenes();
 
+                }
+
+                else if ( _firstSlide ) {
+                    _firstSlide = false;
                 }
 
                 setTimeout( function () {
