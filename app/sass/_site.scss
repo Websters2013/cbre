@@ -25,9 +25,11 @@
   }
 
   &__footer{
+    position: relative;
     max-width: 1760px;
     margin: 0 auto;
     padding-bottom: 42px;
+    z-index: 2;
   }
 
   &__mobile{
@@ -206,6 +208,11 @@
       }
 
     }
+
+    &__footer{
+      padding: 0 72px 42px;
+    }
+
   }
 
 }

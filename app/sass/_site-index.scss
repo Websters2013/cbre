@@ -25,9 +25,11 @@
   }
 
   &__footer{
+    position: relative;
     max-width: 1760px;
     margin: 0 auto;
     padding-bottom: 42px;
+    z-index: 2;
   }
 
   &__mobile{
@@ -183,6 +185,10 @@
       visibility: visible;
       padding-bottom: 0;
       overflow-y: hidden;
+    }
+
+    &__footer{
+      padding: 0 72px 42px;
     }
 
     &.show-circles{
