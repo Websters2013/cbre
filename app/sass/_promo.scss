@@ -1,0 +1,140 @@
+.promo {
+  position: relative;
+  max-width: 1760px;
+  margin: 0 auto 158px;
+
+  img{
+    display: block;
+    max-width: 100%;
+  }
+
+  > img{
+    display: none;
+  }
+
+  &__frame{
+    margin: 0 15px;
+  }
+
+  &__item{
+    height: 250px;
+    margin: 0 auto 100px;
+    padding: 25px 15px 0;
+    border-radius: 35px 35px 0 0;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 4.5px;
+    text-transform: uppercase;
+    text-align: center;
+    box-shadow: 0 14px 30px 0 rgba(0, 0, 0, 0.12);
+
+    img{
+      margin: 0 auto;
+    }
+
+    &_left{
+      background-color: #131724;
+
+      p{
+        margin-bottom: 15px;
+      }
+
+    }
+
+    &_right{
+      background: rgb(0,165,120);
+      background: -moz-linear-gradient(-45deg, rgba(0,165,120,1) 0%, rgba(33,220,148,1) 100%);
+      background: -webkit-linear-gradient(-45deg, rgba(0,165,120,1) 0%,rgba(33,220,148,1) 100%);
+      background: linear-gradient(135deg, rgba(0,165,120,1) 0%,rgba(33,220,148,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a578', endColorstr='#21dc94',GradientType=1 );
+
+      p{
+        margin-bottom: 31px;
+      }
+
+    }
+
+  }
+
+}
+
+@media (min-width: $phone-landscape) {
+
+  .promo {
+
+    &__item{
+      width: 290px;
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .promo {
+    height: 478px;
+    margin-bottom: 188px;
+
+    > img{
+      display: block;
+    }
+
+    &__frame{
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      position: absolute;
+      left: 50%;
+      bottom: 1px;
+      margin: 0;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+    }
+
+    &__item{
+      height: 312px;
+      margin: 0 15px;
+      font-size: 16px;
+
+      &_left{
+        padding: 39px 20px 0;
+        border-radius: 35px 0 0 0;
+      }
+
+      &_right{
+        padding: 39px 15px 0;
+        border-radius: 0 35px 0 0;
+      }
+
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-landscape) {
+
+  .promo {
+    height: 578px;
+
+    &__item{
+      width: 470px;
+
+      &_left{
+        padding: 39px 70px 0;
+        border-radius: 35px 0 0 0;
+      }
+
+      &_right{
+        padding: 39px 35px 0;
+        border-radius: 0 35px 0 0;
+      }
+
+    }
+
+  }
+
+}

@@ -1,0 +1,31 @@
+.preface-about-us {
+  max-width: 970px;
+  margin: 0 auto 50px;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 36px;
+  text-align: center;
+
+  h3{
+    margin-bottom: 21px;
+    letter-spacing: 9.5px;
+    text-transform: uppercase;
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .preface-about-us {
+    margin-bottom: 71px;
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .preface-about-us {
+    margin-bottom: 191px;
+  }
+
+}
