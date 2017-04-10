@@ -38,11 +38,21 @@ var paths = {
                 'app/js/jquery.main.js',
                 'app/js/jquery.inside.js',
                 'app/js/jquery.animation.js',
-                'app/js/jquery.references.js'
+                'app/js/jquery.references.js',
+                'app/js/jquery.popup.js'
             ]
         },
         {
             dist: 'news.min.js',
+            contains: [
+                'app/js/jquery.main.js',
+                'app/js/jquery.news.js',
+                'app/js/jquery.inside.js',
+                'app/js/jquery.animation.js'
+            ]
+        },
+        {
+            dist: 'about.min.js',
             contains: [
                 'app/js/jquery.main.js',
                 'app/js/jquery.inside.js',
@@ -107,7 +117,7 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('php', function () {
-    return gulp.src(paths.fonts, {
+    return gulp.src(paths.php, {
         base: 'app/php'
     }).pipe(gulp.dest('dist/php'));
 });

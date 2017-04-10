@@ -18,7 +18,7 @@
         //private methods
         var _checkScroll = function () {
 
-                if ( _window.scrollTop() > _objTop ){
+                if ( _window.scrollTop() > 0 ){
                     _obj.addClass( 'minimize' )
                 } else {
                     _obj.removeClass( 'minimize' )
@@ -35,6 +35,7 @@
                 } );
             },
             _constructor = function(){
+                _checkScroll();
                 _onEvents();
             };
 

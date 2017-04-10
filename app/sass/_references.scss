@@ -38,6 +38,23 @@
 
   }
 
+  &__topic{
+    padding-top: 15px;
+    color: #131724;
+    background-color: rgba(255,255,255,.8);
+    background-size: 62px;
+    font-size: 36px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    svg{
+      display: none;
+    }
+
+  }
+
 }
 
 @media (min-width: $phone-landscape) {
@@ -153,6 +170,36 @@
 
     }
 
+    &__topic{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 35px;
+      right: 40px;
+      bottom: 35px;
+      left: 40px;
+      padding-top: 0;
+      opacity: 0;
+      -webkit-transition: opacity .3s ease;
+      transition: opacity .3s ease;
+
+      svg{
+        display: block;
+        width: 54px;
+        margin-bottom: 25px;
+      }
+
+      p{
+        position: absolute;
+        right: 0;
+        bottom: 70px;
+        left: 0;
+        padding: 0 15px;
+      }
+
+    }
+
     &__item{
       margin-bottom: 60px;
 
@@ -161,21 +208,7 @@
         transition: transform .3s ease .6s;
       }
 
-      &:after{
-        position: absolute;
-        top: 35px;
-        right: 40px;
-        bottom: 35px;
-        left: 40px;
-        background: url("../img/open_arrow.svg") no-repeat center rgba(255,255,255,.8);
-        background-size: 62px;
-        opacity: 0;
-        -webkit-transition: opacity .3s ease;
-        transition: opacity .3s ease;
-        content: '';
-      }
-
-      &:hover:after{
+      &:hover .references__topic{
         opacity: 1;
       }
 
