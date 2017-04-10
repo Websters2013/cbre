@@ -4,25 +4,26 @@
   align-items: center;
   justify-content: center;
   flex-flow: row wrap;
-
+  margin-bottom: 77px;
 
   &__item {
     display: inline-block;
-    margin: 0 20px 0;
+    margin: 0 2.5% 30px;
+    @include transition(transform, .2, 0);
+
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover {
+      -webkit-transform: translateY(-10px);
+      transform: translateY(-10px);
+    }
 
     img {
-
+      max-width: 100%;
     }
   }
-}
-
-@media (min-width: $tablet-portrait) {
-
-
-}
-
-@media (min-width: $desktop) {
-
-
-
 }

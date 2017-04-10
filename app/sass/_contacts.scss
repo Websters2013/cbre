@@ -2,31 +2,17 @@
 .contacts {
   position: relative;
   z-index: 2;
-  margin: 0 80px;
+  padding: 0 15px;
 
   &__map {
     position: relative;
-    margin-bottom: 208px;
+    margin-bottom: 50px;
     box-shadow: 0 14px 30px 0 rgba(0, 0, 0, 0.06);
   }
   &__map-info {
     position: relative;
-    width: 465px;
-    padding: 91px 0 43px 60px;
+    padding: 40px 20px;
     background: $main-white-color;
-
-    &:before {
-      position: absolute;
-      z-index: 2;
-      top: 0;
-      right: -200px;
-      height: 100%;
-      width: 200px;
-      background: -webkit-linear-gradient(left,  rgba(255,255,255,0.96) 0%,rgba(255,255,255,0.9) 10%,rgba(255,255,255,0.8) 21%,rgba(255,255,255,0.31) 63%,rgba(255,255,255,0.16) 78%,rgba(255,255,255,0.05) 91%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to right,  rgba(255,255,255,0.96) 0%,rgba(255,255,255,0.9) 10%,rgba(255,255,255,0.8) 21%,rgba(255,255,255,0.31) 63%,rgba(255,255,255,0.16) 78%,rgba(255,255,255,0.05) 91%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-      content: '';
-    }
-
   }
   &__map-title {
     margin-bottom: 65px;
@@ -47,9 +33,6 @@
 
     &.active {
 
-      .contacts__map-item-inner {
-        display: block;
-      }
       .contacts__map-item-title {
         color: $main-green-color;
 
@@ -71,6 +54,7 @@
     font-size: 18px;
     line-height: 26px;
     font-weight: 700;
+    cursor: pointer;
     color: $main-text-color;
     @include transition( color, .2, 0 );
 
@@ -120,22 +104,18 @@
     }
   }
   &__maps-map {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 465px;
+    height: 80vw;
   }
   &__form {
     width: 100%;
     max-width: 630px;
-    margin: 0 auto;
+    margin: 0 auto 157px;
 
     p {
-      margin-bottom: 126px;
+      margin-bottom: 40px;
       text-align: center;
-      font-size: 24px;
-      line-height: 36px;
+      font-size: 20px;
+      line-height: 30px;
       font-weight: 300;
       color: $main-text-color;
     }
@@ -155,17 +135,32 @@
 
     fieldset {
       position: relative;
-      margin: 0 30px 40px;
+      margin: 0 0 40px;
       text-align: left;
+
+      &.not-valid {
+
+        input,
+        textarea {
+
+          border-color: #ea5d5d;
+
+          & + label {
+            color: #ea5d5d;
+          }
+        }
+      }
     }
     input,
     textarea {
       width: 100%;
-      height: 92px;
+      height: 55px;
       padding: 0 30px;
-      font-size: 24px;
-      line-height: 36px;
-      color: $main-text-color;
+      font-size: 20px;
+      line-height: 30px;
+      color: $main-green-color;
+      text-shadow: 0 0 0 $main-text-color;
+      -webkit-text-fill-color: transparent;
       border: 2px solid #ddd;
       @include transition(border-color, .2, 0);
 
@@ -178,8 +173,9 @@
       }
     }
     textarea {
-      height: 320px;
-      padding: 37px 30px;
+      height: 250px;
+      margin-bottom: 14px;
+      padding: 18px 30px;
     }
     label {
       position: absolute;
@@ -195,20 +191,108 @@
       letter-spacing: 2.7px;
       @include transition( color, .2, 0 );
     }
-    button {
-
-    }
   }
 }
 
 
 @media (min-width: $tablet-portrait) {
 
+  .contacts {
+
+    &__map {
+      margin-bottom: 208px;
+      min-height: 543px;
+    }
+    &__map-info {
+      width: 40%;
+
+      &:before {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        right: -100px;
+        height: 100%;
+        width: 100px;
+        background: -webkit-linear-gradient(left,  rgba(255,255,255,0.96) 0%,rgba(255,255,255,0.9) 10%,rgba(255,255,255,0.8) 21%,rgba(255,255,255,0.31) 63%,rgba(255,255,255,0.16) 78%,rgba(255,255,255,0.05) 91%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right,  rgba(255,255,255,0.96) 0%,rgba(255,255,255,0.9) 10%,rgba(255,255,255,0.8) 21%,rgba(255,255,255,0.31) 63%,rgba(255,255,255,0.16) 78%,rgba(255,255,255,0.05) 91%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        content: '';
+      }
+
+    }
+    &__maps-map {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 40%;
+      height: 100%;
+    }
+    &__form-wrap {
+
+      fieldset {
+        margin: 0 30px 40px;
+      }
+    }
+  }
 
 }
 
 @media (min-width: $desktop) {
 
+  .contacts {
+    margin: 0 80px;
 
+    &__map {
+      min-height: 561px;
+    }
+    &__map-item-title {
 
+      &:hover {
+        color: $main-green-color;
+
+        svg {
+
+          path {
+            fill: $main-green-color;
+          }
+        }
+      }
+    }
+    &__map-info {
+      width: 465px;
+      padding: 91px 0 43px 60px;
+
+      &:before {
+        right: -200px;
+        width: 200px;
+      }
+    }
+    &__maps-map {
+      left: 465px;
+    }
+    &__form {
+
+      p {
+        margin-bottom: 126px;
+        font-size: 24px;
+        line-height: 36px;
+      }
+    }
+    &__form-wrap {
+
+      fieldset {
+        margin: 0 30px 40px;
+      }
+      input,
+      textarea {
+        height: 92px;
+        font-size: 24px;
+        line-height: 36px;
+      }
+      textarea {
+        height: 320px;
+        padding: 37px 30px;
+      }
+    }
+  }
 }
