@@ -52,13 +52,18 @@
 
                         var curData = _data[i];
 
+                        console.log(curData)
+
                         _setItem( curData );
 
                     };
 
                 } );
 
-                _load = true;
+                setTimeout( function () {
+                    _load = true;
+                }, 500 );
+
                 _obj.removeClass( 'load' );
 
             },

@@ -56,6 +56,7 @@
 
         //private properties
         var _obj = obj,
+            _wrap = $( '.references' ),
             _btn = $( '.references__item' ),
             _title = _obj.find( '.object__title' ),
             _area = _obj.find( '.object__area' ),
@@ -96,8 +97,6 @@
 
                         var curPicture = _data.img[i];
 
-                        console.log( curPicture )
-
                         swiperWrap.append( '<div class="object__item swiper-slide"><img src="'+ curPicture +'" alt="img"/></div>' )
 
                     }
@@ -109,6 +108,7 @@
                     } );
 
                     _linkPrev.attr( 'data-id', id - 1 );
+                    _linkPrev.find( 'span' ).text( _wrap.find( '._btn' ).filter( 'data-id='+ id - 1 ).find( '.references__topic p' ).html() );
 
                     _linkNext.attr( 'data-id', id + 1 );
 

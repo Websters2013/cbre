@@ -28,13 +28,15 @@
   &__wrap {
     position: relative;
     z-index: 2;
-    width: 1760px;
+    width: 90%;
+    max-width: 1760px;
     margin: 0 auto;
     padding-bottom: 40px;
   }
 
   &__content {
     display: none;
+    position: relative;
     text-align: left;
     padding: 20px 0;
   }

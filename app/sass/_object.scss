@@ -4,7 +4,7 @@
     margin-bottom: 55px;
     color: #fff;
     @include lato;
-    font-size: 60px;
+    font-size: 24px;
     font-weight: 600;
     letter-spacing: 5px;
     text-align: center;
@@ -13,15 +13,16 @@
 
   &__frame{
     position: relative;
+    padding-bottom: 187px;
   }
 
   &__info{
+    position: absolute;
+    bottom: 122px;
     display: flex;
     justify-content: center;
     align-self: center;
-    position: absolute;
-    top: 60px;
-    right: 60px;
+    width: 100%;
     padding: 19px 20px 17px;
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.8);
@@ -73,35 +74,22 @@
     align-items: center;
     position: absolute;
     top: 50%;
-    width: 120px;
-    height: 120px;
+    width: 40px;
+    height: 40px;
+    margin-top: -90px;
     border-radius: 150px;
     background-color: #fff;
     z-index: 5;
-    cursor: pointer;
-    -webkit-transition: background-color .3s ease;
-    transition: background-color .3s ease;
-
-    &:hover{
-      background-color: #006f51;
-
-      svg{
-        fill: #fff;
-      }
-
-    }
 
     svg{
-      width: 32px;
+      width: 22px;
       fill: #131724;
-      -webkit-transition: fill .3s ease;
-      transition: fill .3s ease;
     }
 
   }
 
   &__button-prev{
-    left: 0;
+    left: 10px;
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
 
@@ -113,7 +101,7 @@
   }
 
   &__button-next{
-    right: 0;
+    right: 10px;
     -webkit-transform: translateX(50%) translateY(-50%);
     transform: translateX(50%) translateY(-50%);
   }
@@ -128,38 +116,26 @@
 
   &__links{
     position: absolute;
-    bottom: 97px;
+    bottom: 0;
     width: 100%;
     color: #131724;
     @include lato;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 4px;
 
     a{
-      display: flex;
-      align-items: center;
-      position: absolute;
+      display: block;
+      width: 100%;
+      margin-top: 10px;
       padding: 19px 20px 17px;
       border-radius: 4px;
       color: #131724;
       background-color: #fff;
       box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.12);
-      -webkit-transition: background-color .3s ease, color .3s ease;
-      transition: background-color .3s ease, color .3s ease;
+      text-align: center;
       z-index: 5;
-
-      &:hover{
-        color: #fff;
-        background-color: #006f51;
-
-        svg{
-          fill: #fff;
-        }
-
-      }
-
     }
 
     svg{
@@ -171,7 +147,6 @@
     }
 
     &-prev{
-      left: -40px;
 
       svg{
         margin-right: 20px;
@@ -182,7 +157,7 @@
     }
 
     &-next{
-      right: -40px;
+      right: 0;
 
       svg{
         margin-left: 20px;
@@ -198,6 +173,61 @@
 
   .object {
 
+    &__title{
+      font-size: 60px;
+    }
+
+    &__frame{
+      padding-bottom: 0;
+    }
+
+    &__info{
+      position: absolute;
+      top: 60px;
+      right: 60px;
+      bottom: auto;
+      width: auto;
+    }
+
+    &__swipe{
+      margin-bottom: 0;
+    }
+
+    &__button-prev,
+    &__button-next {
+      margin-top: 0;
+    }
+
+    &__button-prev{
+      left: 0;
+    }
+
+    &__button-next{
+      right: 0;
+    }
+
+    &__links {
+      display: flex;
+      align-items: center;
+      bottom: 42px;
+      font-size: 18px;
+
+      a{
+        position: absolute;
+        width: auto;
+        margin-top: 0;
+      }
+
+      &-prev {
+        left: -15px;
+      }
+
+      &-next {
+        right: -15px;
+      }
+
+    }
+
   }
 
 }
@@ -205,6 +235,60 @@
 @media (min-width: $desktop) {
 
   .object {
+
+    &__button-prev,
+    &__button-next {
+      width: 120px;
+      height: 120px;
+      cursor: pointer;
+      -webkit-transition: background-color .3s ease;
+      transition: background-color .3s ease;
+
+      &:hover{
+        background-color: #006f51;
+
+        svg{
+          fill: #fff;
+        }
+
+      }
+
+      svg{
+        width: 32px;
+        -webkit-transition: fill .3s ease;
+        transition: fill .3s ease;
+      }
+
+    }
+
+    &__links {
+      bottom: 97px;
+
+      a{
+        -webkit-transition: background-color .3s ease, color .3s ease;
+        transition: background-color .3s ease, color .3s ease;
+
+        &:hover{
+          color: #fff;
+          background-color: #006f51;
+
+          svg{
+            fill: #fff;
+          }
+
+        }
+
+      }
+
+      &-prev {
+        left: -40px;
+      }
+
+      &-next {
+        right: -40px;
+      }
+
+    }
 
   }
 
