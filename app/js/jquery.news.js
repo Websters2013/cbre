@@ -52,8 +52,6 @@
 
                         var curData = _data[i];
 
-                        console.log(curData)
-
                         _setItem( curData );
 
                     };

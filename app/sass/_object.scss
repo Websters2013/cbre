@@ -107,11 +107,7 @@
   }
 
   &__pagination{
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
+    display: none;
   }
 
   &__links{
@@ -173,15 +169,16 @@
 
   .object {
 
-    &__title{
+    &__title {
       font-size: 60px;
     }
 
-    &__frame{
+    &__frame {
+      margin-bottom: 80px;
       padding-bottom: 0;
     }
 
-    &__info{
+    &__info {
       position: absolute;
       top: 60px;
       right: 60px;
@@ -189,7 +186,7 @@
       width: auto;
     }
 
-    &__swipe{
+    &__swipe {
       margin-bottom: 0;
     }
 
@@ -198,11 +195,11 @@
       margin-top: 0;
     }
 
-    &__button-prev{
+    &__button-prev {
       left: 0;
     }
 
-    &__button-next{
+    &__button-next {
       right: 0;
     }
 
@@ -212,7 +209,7 @@
       bottom: 42px;
       font-size: 18px;
 
-      a{
+      a {
         position: absolute;
         width: auto;
         margin-top: 0;
@@ -228,6 +225,56 @@
 
     }
 
+    &__pagination {
+      display: block;
+      position: absolute;
+      left: 50%;
+      bottom: -50px;
+      z-index: 2;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+
+      span{
+        position: relative;
+        width: 20px;
+        height: 20px;
+        margin: 0 5px;
+        border: 5px solid #fff;
+        border-radius: 20px;
+        background: transparent;
+        opacity: 1;
+
+        &:before{
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 5px;
+          height: 5px;
+          border: 4px solid #fff;
+          border-radius: 20px;
+          background-color: #006f51;
+          -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+          box-shadow: 0 8px 4px 0 rgba(0, 0, 0, 0.2);
+          opacity: 0;
+          -webkit-transition: opacity .3s ease;
+          transition: opacity .3s ease;
+        }
+
+        &.swiper-pagination-bullet-active{
+          background-color: transparent;
+
+          &:before{
+            opacity: 1;
+          }
+
+        }
+
+      }
+
+    }
+
   }
 
 }
@@ -235,6 +282,10 @@
 @media (min-width: $desktop) {
 
   .object {
+
+    &__frame {
+      margin-bottom: 0;
+    }
 
     &__button-prev,
     &__button-next {
@@ -288,6 +339,10 @@
         right: -40px;
       }
 
+    }
+
+    &__pagination {
+      bottom: 60px;
     }
 
   }

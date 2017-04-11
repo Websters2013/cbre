@@ -138,3 +138,51 @@
   }
 
 }
+
+@media (min-width: $desktop) {
+
+  .promo {
+
+    &__item{
+      opacity: 0;
+      -webkit-transition: opacity 1.3s cubic-bezier(0.165, 0.84, 0.44, 1), transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: opacity 1.3s cubic-bezier(0.165, 0.84, 0.44, 1), transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+      &_left{
+        -webkit-transform: translateX(-50px);
+        transform: translateX(-50px);
+      }
+
+      &_right{
+        -webkit-transform: translateX(50px);
+        transform: translateX(50px);
+      }
+
+    }
+
+  }
+
+  .animation{
+
+    .promo {
+
+      &__item{
+        opacity: 1;
+
+        &_left{
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+        }
+
+        &_right{
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+        }
+
+      }
+
+    }
+
+  }
+
+}

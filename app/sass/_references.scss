@@ -27,6 +27,7 @@
 
   &__item{
     position: relative;
+    width: 100%;
     max-width: 395px;
     margin-bottom: 20px;
     overflow: hidden;
@@ -51,6 +52,11 @@
 
     svg{
       display: none;
+    }
+
+    p{
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
   }
@@ -143,13 +149,13 @@
       &:nth-child( odd ){
 
         .references__item:nth-child( odd ) img{
-          -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
+          -webkit-transform: translateY(-101%);
+          transform: translateY(-101%);
         }
 
         .references__item:nth-child( even ) img{
-          -webkit-transform: translateY(100%);
-          transform: translateY(100%);
+          -webkit-transform: translateY(101%);
+          transform: translateY(101%);
         }
 
       }
@@ -157,13 +163,13 @@
       &:nth-child( even ){
 
         .references__item:nth-child( odd ) img{
-          -webkit-transform: translateY(100%);
-          transform: translateY(100%);
+          -webkit-transform: translateY(101%);
+          transform: translateY(101%);
         }
 
         .references__item:nth-child( even ) img{
-          -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
+          -webkit-transform: translateY(-101%);
+          transform: translateY(-101%);
         }
 
       }
@@ -172,30 +178,32 @@
 
     &__topic{
       display: flex;
-      justify-content: center;
+      flex-flow: column;
+      justify-content: space-between;
       align-items: center;
       position: absolute;
       top: 35px;
       right: 40px;
       bottom: 35px;
       left: 40px;
-      padding-top: 0;
+      padding: 35px 0;
       opacity: 0;
       -webkit-transition: opacity .3s ease;
       transition: opacity .3s ease;
 
+      &:before{
+        display: block;
+        content: '';
+      }
+
       svg{
         display: block;
         width: 54px;
-        margin-bottom: 25px;
       }
 
       p{
-        position: absolute;
-        right: 0;
-        bottom: 70px;
-        left: 0;
-        padding: 0 15px;
+        margin: 0 15px;
+        max-width: 100%;
       }
 
     }
@@ -204,8 +212,8 @@
       margin-bottom: 60px;
 
       img{
-        -webkit-transition: transform .3s ease .6s;
-        transition: transform .3s ease .6s;
+        -webkit-transition: transform 1.2s ease .3s;
+        transition: transform 1.2s ease .3s;
       }
 
       &:hover .references__topic{
@@ -214,13 +222,13 @@
 
     }
 
-    &.animate-block{
+    &.animation{
 
       .references{
 
         &__item img{
-          -webkit-transform: translateX(0)!important;
-          transform: translateX(0)!important;
+          -webkit-transform: translateY(0)!important;
+          transform: translateY(0)!important;
         }
 
         &__title{

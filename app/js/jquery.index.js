@@ -12,12 +12,8 @@
             new Sliders( $( this ) );
         } );
 
-        $.each( $( '.references' ), function() {
-            new ReferencesAnimare( $( this ) );
-        } );
-
-        $.each( $( '.news' ), function() {
-            new NewsAnimare( $( this ) );
+        $.each( $( '.slides' ), function() {
+            new Slides( $( this ) );
         } );
 
     } );
@@ -375,76 +371,50 @@
         _construct();
     };
 
-    var ReferencesAnimare = function( obj ) {
+    var Slides = function ( obj ) {
 
         //private properties
-        var _obj = obj,
-            _objTop = _obj.offset().top,
+        var _self = this,
+            _obj = obj,
             _window = $( '.site' );
 
         //private methods
-        var _onEvent = function(){
-                _window.on( {
-                    'scroll': function () {
+        var _onEvents = function () {
+                _window.on({
+                    scroll: function () {
 
                         _checkScroll();
 
                     }
-                } );
+                });
             },
-            _checkScroll = function () {
+            _checkScroll = function(){
 
-                if ( ( _window.scrollTop() + _window.height() * 0.75 ) >= _objTop ){
-                    _obj.addClass( 'animate-block' )
-                }
+                var windowH = _window.height();
 
+                _obj.each(function () {
+
+                    var curItem = $(this),
+                        topPos = _obj.offset().top;
+
+                    if( _window.scrollTop() > (topPos - windowH/1.3) && !curItem.hasClass( 'animation' ) ){
+
+                        curItem.addClass( 'animation' );
+
+                    }
+                })
             },
-            _construct = function() {
+            _init = function () {
+                _obj[0].slides = _self;
+                _onEvents();
                 _checkScroll();
-                _onEvent();
             };
 
         //public properties
 
         //public methods
 
-        _construct();
-    };
-
-    var NewsAnimare = function( obj ) {
-
-        //private properties
-        var _obj = obj,
-            _objTop = _obj.offset().top,
-            _window = $( '.site' );
-
-        //private methods
-        var _onEvent = function(){
-                _window.on( {
-                    'scroll': function () {
-
-                        _checkScroll();
-
-                    }
-                } );
-            },
-            _checkScroll = function () {
-
-                if ( ( _window.scrollTop() + _window.height() * 0.75 )  >= _objTop ){
-                    _obj.addClass( 'animate-block' )
-                }
-
-            },
-            _construct = function() {
-                _checkScroll();
-                _onEvent();
-            };
-
-        //public properties
-
-        //public methods
-
-        _construct();
+        _init();
     };
 
     var Sliders = function( obj ) {

@@ -87,6 +87,31 @@
     &__content {
       margin-left: 114px;
       max-width: 470px;
+
+      .tlt{
+        opacity: 0;
+
+        &.visible{
+          opacity: 1;
+        }
+      }
+
+    }
+
+    &__img{
+      opacity: 0;
+      transform: translateX(-50px);
+      -webkit-transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    &.animation{
+
+      .team__img{
+        opacity: 1;
+        transform: translateX(0);
+      }
+
     }
 
   }

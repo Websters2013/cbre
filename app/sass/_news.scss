@@ -188,13 +188,13 @@
       &:nth-child( odd ){
 
         .news__item:nth-child( odd ) img{
-          -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
+          -webkit-transform: translateY(-101%);
+          transform: translateY(-101%);
         }
 
         .news__item:nth-child( even ) img{
-          -webkit-transform: translateY(100%);
-          transform: translateY(100%);
+          -webkit-transform: translateY(101%);
+          transform: translateY(101%);
         }
 
       }
@@ -202,13 +202,13 @@
       &:nth-child( even ){
 
         .news__item:nth-child( odd ) img{
-          -webkit-transform: translateY(100%);
-          transform: translateY(100%);
+          -webkit-transform: translateY(101%);
+          transform: translateY(101%);
         }
 
         .news__item:nth-child( even ) img{
-          -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
+          -webkit-transform: translateY(-101%);
+          transform: translateY(-101%);
         }
 
       }
@@ -236,8 +236,8 @@
       }
 
       img{
-        -webkit-transition: transform .3s ease .3s;
-        transition: transform .3s ease .3s;
+        -webkit-transition: transform  1.2s ease .3s;
+        transition: transform  1.2s ease .3s;
       }
 
     }
@@ -247,7 +247,7 @@
       margin: 0;
     }
 
-    &.animate-block{
+    &.animation{
 
       .news{
 

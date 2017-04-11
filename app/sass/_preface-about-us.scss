@@ -26,6 +26,16 @@
 
   .preface-about-us {
     margin-bottom: 191px;
+    opacity: 0;
+    transform: translateY(50px);
+    -webkit-transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    &.animation{
+      opacity: 1;
+      transform: translateY(0);
+    }
+
   }
 
 }
