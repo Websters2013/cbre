@@ -63,10 +63,13 @@
                         new Sliders ( $( this ) );
                     } );
 
-                    _linkPrev.attr( 'data-id', id - 1 );
+                    /*_linkPrev.attr( 'data-id', id - 1 );
                     _linkPrev.find( 'span' ).text( _wrap.find( '._btn' ).filter( 'data-id='+ id - 1 ).find( '.references__topic p' ).html() );
 
-                    _linkNext.attr( 'data-id', id + 1 );
+                    console.log('data-id='+ (id - 1) )
+                    console.log( _wrap.find( '._btn' ).filter( 'data-id='+ (id - 1) ).find( '.references__topic p' ) )
+
+                    _linkNext.attr( 'data-id', id + 1 );*/
 
                 } );
 
