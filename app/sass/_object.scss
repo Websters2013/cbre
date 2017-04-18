@@ -136,7 +136,7 @@
 
     svg{
       display: inline-block;
-      vertical-align: middle;
+      vertical-align: top;
       width: 13px;
       -webkit-transition: fill .3s ease;
       transition: fill .3s ease;
@@ -221,6 +221,10 @@
 
       &-next {
         right: -15px;
+      }
+
+      svg{
+        margin-top: 2px;
       }
 
     }

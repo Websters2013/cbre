@@ -63,13 +63,14 @@
                         new Sliders ( $( this ) );
                     } );
 
-                    /*_linkPrev.attr( 'data-id', id - 1 );
-                    _linkPrev.find( 'span' ).text( _wrap.find( '._btn' ).filter( 'data-id='+ id - 1 ).find( '.references__topic p' ).html() );
+                    var idPrev = id - 1,
+                        idNext = id + 1;
 
-                    console.log('data-id='+ (id - 1) )
-                    console.log( _wrap.find( '._btn' ).filter( 'data-id='+ (id - 1) ).find( '.references__topic p' ) )
+                    _linkPrev.attr( 'data-id', idPrev );
+                    _linkPrev.find( 'span' ).text( _wrap.find( '.references__item' ).filter( '[data-id='+ idPrev +']' ).find( '.references__topic p' ).html() );
 
-                    _linkNext.attr( 'data-id', id + 1 );*/
+                    _linkNext.attr( 'data-id', idNext );
+                    _linkNext.find( 'span' ).text( _wrap.find( '.references__item' ).filter( '[data-id='+ idNext +']' ).find( '.references__topic p' ).html() );
 
                 } );
 

@@ -4,7 +4,7 @@
 
     $( function(){
 
-        $.each( $( '.latest-news' ), function() {
+        $.each( $( '.load-news' ), function() {
             new NewsLoader ( $( this ) );
         } );
 
