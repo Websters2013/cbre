@@ -1,7 +1,7 @@
 .promo {
   position: relative;
   max-width: 1760px;
-  margin: 0 auto 158px;
+  margin: 0 auto 58px;
 
   img{
     display: block;
@@ -17,41 +17,74 @@
   }
 
   &__item{
-    height: 250px;
-    margin: 0 auto 100px;
+    height: 283px;
+    margin: 0 auto;
     padding: 25px 15px 0;
-    border-radius: 35px 35px 0 0;
-    color: #fff;
+    color: #000;
     font-size: 14px;
     font-weight: 700;
-    line-height: 30px;
-    letter-spacing: 4.5px;
-    text-transform: uppercase;
+    line-height: 24px;
+    letter-spacing: 4.8px;
+    background-color: #fff;
     text-align: center;
-    box-shadow: 0 14px 30px 0 rgba(0, 0, 0, 0.12);
 
     img{
       margin: 0 auto;
     }
 
-    &_left{
-      background-color: #131724;
+    p{
+      margin-bottom: 23px;
+    }
 
-      p{
-        margin-bottom: 15px;
+    svg{
+      position: relative;
+      left: -3px;
+      width: 118px;
+      enable-background:new 168 38.4 932.1 764.5;
+
+      .st0{
+        fill:none;
+        stroke:#006f51;
+        stroke-width:4;
+        stroke-miterlimit:10;
       }
 
     }
 
-    &_right{
-      background: rgb(0,165,120);
-      background: -moz-linear-gradient(-45deg, rgba(0,165,120,1) 0%, rgba(33,220,148,1) 100%);
-      background: -webkit-linear-gradient(-45deg, rgba(0,165,120,1) 0%,rgba(33,220,148,1) 100%);
-      background: linear-gradient(135deg, rgba(0,165,120,1) 0%,rgba(33,220,148,1) 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a578', endColorstr='#21dc94',GradientType=1 );
+    &_right svg{
+      width: 122px;
+    }
 
-      p{
-        margin-bottom: 31px;
+    &-square{
+      position: absolute;
+      top: 32px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      padding: 4px 0;
+      background-color: #fff;
+      color: #006f51;
+      font-size: 30px;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 9px;
+    }
+
+    &-img{
+      position: relative;
+      font-size: 12px;
+      font-weight: 800;
+
+      svg{
+        margin-bottom: -23px;
+      }
+
+      span{
+        position: relative;
+        top: 1px;
+        padding: 0 3px 0 2px;
+        letter-spacing: 4px;
+        background-color: #fff;
       }
 
     }
@@ -75,7 +108,6 @@
 @media (min-width: $tablet-portrait) {
 
   .promo {
-    height: 478px;
     margin-bottom: 188px;
 
     > img{
@@ -88,27 +120,16 @@
       align-items: flex-end;
       position: absolute;
       left: 50%;
-      bottom: 1px;
+      bottom: 50%;
       margin: 0;
-      -webkit-transform: translateX(-50%);
-      transform: translateX(-50%);
+      padding-top: 27px;
+      -webkit-transform: translate(-50%, 50%);
+      transform: translate(-50%, 50%);
     }
 
     &__item{
-      height: 312px;
-      margin: 0 15px;
       font-size: 16px;
-
-      &_left{
-        padding: 39px 20px 0;
-        border-radius: 35px 0 0 0;
-      }
-
-      &_right{
-        padding: 39px 15px 0;
-        border-radius: 0 35px 0 0;
-      }
-
+      padding: 39px 20px 0;
     }
 
   }
@@ -118,19 +139,17 @@
 @media (min-width: $tablet-landscape) {
 
   .promo {
-    height: 578px;
 
     &__item{
-      width: 470px;
+      width: 385px;
+      padding:53px 30px 0 20px;
 
-      &_left{
-        padding: 39px 70px 0;
-        border-radius: 35px 0 0 0;
+      svg{
+        width: 118px;
       }
 
       &_right{
-        padding: 39px 35px 0;
-        border-radius: 0 35px 0 0;
+        padding: 53px 50px 0 69px;
       }
 
     }
