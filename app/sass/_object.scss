@@ -31,8 +31,10 @@
     font-size: 18px;
     font-weight: 300;
     z-index: 2;
+    white-space: nowrap;
 
     svg{
+      width: 20px;
       height: 20px;
       margin-right: 11px;
       fill: #006f51;
@@ -139,6 +141,7 @@
       display: inline-block;
       vertical-align: top;
       width: 13px;
+      height: 13px;
       -webkit-transition: fill .3s ease;
       transition: fill .3s ease;
     }

@@ -279,13 +279,9 @@
                     } );
 
                 } else if ( !_firstSlide ) {
-
                     _canScroll = true;
                     _hideScenes();
-
-                }
-
-                else if ( _firstSlide ) {
+                } else if ( _firstSlide ) {
                     _firstSlide = false;
                 }
 
@@ -338,19 +334,36 @@
             },
             _hideScenes = function () {
                 _obj.addClass( 'hide' );
+                $( '.references' ).addClass( 'animation' );
                 _indicator.turnOff();
                 _indicatorSwiper.turnOff();
                 _sceneActive = false;
                 _scrollConteiner.css( {
-                    overflowY: 'auto'
+                    overflowY: 'auto',
+                    paddingRight: 0
                 } );
             },
             _hidePageScroll= function () {
 
                 _scrollConteiner.css( {
-                    overflowY: 'hidden'
+                    overflowY: 'hidden',
+                    paddingRight: _getScrollWidth()
                 } );
 
+            },
+            _getScrollWidth = function (){
+                var scrollDiv = document.createElement( 'div'),
+                    scrollBarWidth;
+
+                scrollDiv.className = 'site__scrollbar-measure';
+
+                document.body.appendChild( scrollDiv );
+
+                scrollBarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+
+                document.body.removeChild(scrollDiv);
+
+                return scrollBarWidth;
             },
             _construct = function() {
 
@@ -424,10 +437,18 @@
             _servicesSlider = _obj.find( '.services__swipe' ),
             _servicesPagination = _obj.find( '.services__pagination' ),
             _servicesItem = _obj.find( '.services__item' ),
+            _window = $( window ),
+            _initFlag = false,
             _services;
 
         //private methods
         var _initSlider = function() {
+
+                if ( _window.width() < 1200  || _initFlag ) {
+                    return false
+                }
+
+                _initFlag = true;
 
                 _services = new Swiper ( _servicesSlider, {
                     autoplay: false,
@@ -463,6 +484,26 @@
 
             },
             _onEvent = function() {
+
+                _window.on(
+                    'resize', function () {
+
+                        if ( _window.width() < 1200 && !_initFlag ) {
+
+                            _initSlider();
+
+                            _initFlag = true;
+
+                        } else if ( _window.width() >= 1200 && _initFlag ) {
+
+                            _services.destroy( true, true );
+
+                            _initFlag = false;
+
+                        }
+
+                    }
+                )
 
             },
             _init = function() {

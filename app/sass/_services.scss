@@ -12,12 +12,7 @@
   }
 
   &__item{
-    opacity: 0!important;
-
-    &.swiper-slide-active{
-      opacity: 1!important;
-    }
-
+    margin-bottom: 55px;
   }
 
   &__img{
@@ -79,30 +74,8 @@
 
   }
 
-  &__pagination{
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    z-index: 1;
-
-    span{
-      width: 28px;
-      height: 3px;
-      margin: 7.5px 5px;
-      background-color: $services-arrow;
-      border-radius: 0;
-      opacity: 1;
-      -webkit-transition: width .3s ease, background-color .3s ease;
-      transition: width .3s ease, background-color .3s ease;
-      cursor: pointer;
-
-      &.swiper-pagination-bullet-active{
-        width: 48px;
-        background-color: $services-arrow-hover;
-      }
-
-    }
-
+  .swiper-wrapper{
+    flex-direction: column;
   }
 
 }
@@ -214,6 +187,16 @@
       transition: transform .3s ease .5s, opacity .3s ease .6s;
     }
 
+    &__item{
+      margin-bottom: 0;
+      opacity: 0!important;
+
+      &.swiper-slide-active{
+        opacity: 1!important;
+      }
+
+    }
+
     &__content{
 
       & > div{
@@ -245,17 +228,30 @@
     }
 
     &__pagination{
-      position: absolute;
+      display: flex;
       flex-flow: column;
+      align-items: flex-end;
+      justify-content: center;
+      position: absolute;
       top: 50%;
       right: 0;
       margin-top: -8px;
       -webkit-transform: translateY(-50%);
       transform: translateY(-50%);
+      z-index: 1;
 
       span{
+        width: 28px;
+        height: 3px;
+        margin: 7.5px 5px;
+        background-color: $services-arrow;
+        border-radius: 0;
+        opacity: 1;
         -webkit-transform: scale(0);
         transform: scale(0);
+        -webkit-transition: width .3s ease, background-color .3s ease;
+        transition: width .3s ease, background-color .3s ease;
+        cursor: pointer;
 
         &:nth-child(1){
           -webkit-transition: width .3s ease, background-color .3s ease, transform .3s ease .6s;
@@ -277,8 +273,17 @@
           transition: width .3s ease, background-color .3s ease, transform .3s ease 1.5s;
         }
 
+        &.swiper-pagination-bullet-active{
+          width: 48px;
+          background-color: $services-arrow-hover;
+        }
+
       }
 
+    }
+
+    .swiper-wrapper{
+      flex-direction: row;
     }
 
   }

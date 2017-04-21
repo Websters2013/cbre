@@ -75,12 +75,15 @@
     padding: 32px 72px 0;
 
     &__content {
-      margin-bottom: 0;
+      margin: 0;
     }
 
     &__link{
       position: absolute;
+      left: 50%;
       bottom: 122px;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
     }
 
   }

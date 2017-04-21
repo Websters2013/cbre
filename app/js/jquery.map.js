@@ -1,4 +1,3 @@
-
 ( function() {
     "use strict";
 
@@ -7,6 +6,7 @@
         $.each( $( '.contacts__maps-map' ), function() {
 
             new Map ( $( this ) );
+            console.log('ddd')
 
         } );
 
@@ -31,7 +31,8 @@
 
         //private methods
         var _constructor = function () {
-                google.maps.event.addDomListener(window, 'load', _initMap);
+                // google.maps.event.addDomListener(window, 'load', _initMap);
+                _initMap();
                 _onEvents();
             },
             _initMap = function () {

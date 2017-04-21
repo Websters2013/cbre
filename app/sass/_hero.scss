@@ -2,12 +2,16 @@
   position: relative;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   padding: 90px 0 32px;
   @include lato;
   text-align: center;
   background-color: #fff;
+
+  &:before{
+    content: '';
+  }
 
   &__content{
     margin-bottom: 50px;
@@ -67,10 +71,10 @@
 @media (min-width: $desktop) {
 
   .hero{
-    padding: 0 72px 60px;
+    padding: 60px 72px;
 
     &__content{
-      margin-bottom: 70px;
+      margin-bottom: 0;
 
       p{
         opacity: 0;
@@ -140,6 +144,7 @@
         position: absolute;
         top: 25px;
         left: calc( 50% - 8.5px);
+        height: 39px;
         width: 17px;
         enable-background:new 14 -4.7 24 55.4;
         animation-name: arrowDown;
